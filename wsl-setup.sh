@@ -59,6 +59,10 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
+# Installing Golang Linting and Debugger
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
+go get -u github.com/go-delve/delve/cmd/dlv
+
 source ~/.bashrc
 
 # Yarn
