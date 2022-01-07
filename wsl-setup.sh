@@ -42,6 +42,7 @@ export GETGIST_USER="$(git config user.name)"
 sudo -H pip3 install virtualenv
 sudo -H pip3 install virtualenvwrapper
 
+
 # NodeJs
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt install -y nodejs npm
@@ -63,15 +64,16 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
 go get -u github.com/go-delve/delve/cmd/dlv
 
-source ~/.bashrc
-
 # Yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt -y update && sudo apt -y install yarn
 
 # Installing Docker
+sudo -H pip3 install docker-compose
+export DOCKER_HOST=tcp://localhost:2375
 
+source ~/.bashrc
 
 # Zsh and Oh My Zsh
 export RUNZSH='no'
